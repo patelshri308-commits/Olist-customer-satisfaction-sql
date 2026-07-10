@@ -10,6 +10,22 @@ The obvious hypothesis "low review scores mean slow shipping" turned out to be o
 
 Full write-up with methodology, data-quality decisions, and the complete recommendation: **[analysis/write_up.md](analysis/write_up.md)**
 
+## Findings at a glance
+
+**Satisfaction varies meaningfully by category** — a ~0.23-star spread between the best and worst of the top 15:
+
+![Average review score by category](analysis/charts/01_avg_review_score_by_category.png)
+
+**Delivery lateness explains part of the gap, not most of it** (r = -0.49) — note `electronics` and `health_beauty` sit well above the trend line despite high late-delivery rates:
+
+![Review score vs late delivery rate](analysis/charts/02_review_score_vs_late_delivery.png)
+
+**For the worst category, the real driver is volume concentration**: most sellers (85) are actually strong, but they only carry 12% of orders — the 51% majority of volume sits with a mediocre-scoring tier of just 28 sellers:
+
+![Seller tiers for bed_bath_table](analysis/charts/03_bed_bath_table_seller_tiers.png)
+
+Charts are generated directly from the database via `analysis/generate_charts.py` — re-run it any time after `./load_db.sh` to regenerate from scratch.
+
 ## Repo structure
 
 ```
@@ -22,6 +38,8 @@ sql/                   All SQL, numbered in the order it was run
   08-10_*bed_bath_table*.sql    seller-level drill-down on the worst category
 analysis/
   write_up.md            full business write-up: question, approach, findings, recommendation, limitations
+  generate_charts.py     rebuilds charts/ from data/olist.db
+  charts/                PNGs referenced above and in write_up.md
 data/
   raw/                   source CSVs (gitignored -- see setup below)
   olist.db               built SQLite database (gitignored, rebuild with load_db.sh)

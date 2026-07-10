@@ -41,7 +41,7 @@ analysis/
   generate_charts.py     rebuilds charts/ from data/olist.db
   charts/                PNGs referenced above and in write_up.md
 data/
-  raw/                   source CSVs (gitignored -- see setup below)
+  raw/                   source CSVs (gitignored. See setup below)
   olist.db               built SQLite database (gitignored, rebuild with load_db.sh)
 load_db.sh              builds data/olist.db from the raw CSVs
 ```

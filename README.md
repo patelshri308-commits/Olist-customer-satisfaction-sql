@@ -12,11 +12,11 @@ Full write-up with methodology, data-quality decisions, and the complete recomme
 
 ## Findings at a glance
 
-**Satisfaction varies meaningfully by category** — a ~0.23-star spread between the best and worst of the top 15:
+**Satisfaction varies meaningfully by category** . a ~0.23-star spread between the best and worst of the top 15:
 
 ![Average review score by category](analysis/charts/01_avg_review_score_by_category.png)
 
-**Delivery lateness explains part of the gap, not most of it** (r = -0.49) — note `electronics` and `health_beauty` sit well above the trend line despite high late-delivery rates:
+**Delivery lateness explains part of the gap, not most of it** (r = -0.49). note `electronics` and `health_beauty` sit well above the trend line despite high late-delivery rates:
 
 ![Review score vs late delivery rate](analysis/charts/02_review_score_vs_late_delivery.png)
 
@@ -24,7 +24,7 @@ Full write-up with methodology, data-quality decisions, and the complete recomme
 
 ![Seller tiers for bed_bath_table](analysis/charts/03_bed_bath_table_seller_tiers.png)
 
-Charts are generated directly from the database via `analysis/generate_charts.py` — re-run it any time after `./load_db.sh` to regenerate from scratch.
+Charts are generated directly from the database via `analysis/generate_charts.py`. re-run it any time after `./load_db.sh` to regenerate from scratch.
 
 ## Repo structure
 

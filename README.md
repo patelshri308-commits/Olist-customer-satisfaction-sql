@@ -6,14 +6,14 @@ An end-to-end SQL analysis of the [Olist Brazilian E-Commerce dataset](https://w
 
 ## The headline finding
 
-The obvious hypothesis — "low review scores mean slow shipping" — turned out to be only a small part of the story (r = -0.49 between late-delivery rate and review score, explaining ~24% of the category-to-category variance). For the worst-performing category, `bed_bath_table`, the real driver was **volume concentration in mediocre sellers**: 28 sellers scoring 3.7-4.0 (not terrible, just below average) together handle 51% of the category's order volume, while the largest group of sellers by headcount (85 of them) actually score 4.3+ but carry only 12% of volume. That reframes the fix from "launch a category-wide logistics initiative" to "run a targeted improvement program for ~28 named sellers."
+The obvious hypothesis "low review scores mean slow shipping" turned out to be only a small part of the story (r = -0.49 between late-delivery rate and review score, explaining ~24% of the category-to-category variance). For the worst-performing category, `bed_bath_table`, the real driver was **volume concentration in mediocre sellers**: 28 sellers scoring 3.7-4.0 (not terrible, just below average) together handle 51% of the category's order volume, while the largest group of sellers by headcount (85 of them) actually score 4.3+ but carry only 12% of volume. That reframes the fix from "launch a category-wide logistics initiative" to "run a targeted improvement program for ~28 named sellers."
 
 Full write-up with methodology, data-quality decisions, and the complete recommendation: **[analysis/write_up.md](analysis/write_up.md)**
 
 ## Repo structure
 
 ```
-sql/                   -- All SQL, numbered in the order it was run
+sql/                   All SQL, numbered in the order it was run
   00_schema.sql               table definitions
   01-04_explore_*.sql          data quality checks (order status, nulls, category volume, multi-category orders)
   05_avg_review_score_by_category.sql
@@ -36,7 +36,7 @@ load_db.sh              builds data/olist.db from the raw CSVs
 
 ## Why SQLite
 
-No server to spin up — the whole analysis is reproducible from a single script and the CLI. Every query in `sql/` runs standalone against `data/olist.db`.
+No server to spin up. The whole analysis is reproducible from a single script and the CLI. Every query in `sql/` runs standalone against `data/olist.db`.
 
 ## Tools
 
